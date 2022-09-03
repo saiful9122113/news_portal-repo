@@ -12,27 +12,8 @@
 
 <body style="background-color:#E4E4E4">
     <header>
-        <section class="mt-5">
-            <div class="container d-flex justify-content-between mb-4">
-                <div>
-                    <h3><span class="bg-primary text-white rounded me-3 px-4 py-2">News</span><span
-                            class="text-primary">Edutorial</span>
-                    </h3>
-                </div>
+        <section class="container mt-5">
 
-                <div class="d-flex justify-content-between mb-4">
-                    <h3 class="text-primary me-5">News</h3>
-                    <button type="button" class="btn border-0 btn-outline-info"><a href="page2.html">
-                            <h3>Blog</h3>
-                        </a>
-                    </button>
-                </div>
-            </div>
-
-            <hr>
-        </section>
-
-        <section class="container">
             <nav class="navbar navbar-expand-lg">
                 <div class="container-fluid">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -41,39 +22,29 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <ul class="navbar-nav justify-content-center gap-1 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Breaking news</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Regular News</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">International news</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Sports</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Entertainment</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Culture</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">Arts</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active me-5" aria-current="page" href="#">All news</a>
-                            </li>
-                        </ul>
+
+                        <div class="d-flex justify-content-between">
+
+                            <div class="d-flex pe-5 me-5">
+                                <h3 class="bg-primary text-white rounded px-5 py-1 me-4">News</h3>
+                                <h3 class="text-primary pe-5 me-5">Edutorial</h3>
+                            </div>
+
+                            <div class="ms-5 ps-5">
+                                <h3><a class="text-primary px-5 ms-5" href="index.html">News</a>
+                                    <a href="page2.html">Blog</a>
+                                </h3>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </nav>
+
+            <hr>
+
         </section>
+
     </header>
 
     <main>
@@ -99,35 +70,44 @@
             </div>
         </section>
 
+        <!-- Searching section  -->
         <section class="container">
             <div class="mb-3 w-50">
                 <input id="search-field" type="email" class="form-control" placeholder="Search your phone">
                 <div id="btn-search" class="btn btn-primary">Search</div>
             </div>
         </section>
-        <section>
-            <div id="news-container" class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+
+        <!-- section for create element  -->
+        <section class="container">
+            <div id="news-container" class="card mb-3" style="max-width: 540px;">
+
+                <div class="row g-0">
+
+                </div>
 
             </div>
         </section>
-        <!-- card section  -->
-        <!-- <section class="container mt-5">
-            <div class="card mb-3" style="max-width: 540px;">
+
+        <!-- <section class="container mt-5"> -->
+
+
+        <!-- <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="..." class="img-fluid rounded-start" alt="...">
+                  <div class="col-md-4">
+                    <img src="..." class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
                     </div>
-                    <div class="col-md-8">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                        </div>
-                    </div>
+                  </div>
                 </div>
-            </div>
-        </section> -->
+              </div> -->
+        <!-- </section> -->
+
     </main>
 
 
