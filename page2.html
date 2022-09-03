@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer of question</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mb-4 text-center">
+        <h2 class="mt-5 mb-4">Answer of Frequent Question</h2>
+        <button id="btn-blog" type="button" class="btn border-0 btn-outline-info"><a href="index.html">
+                <h3>Previous</h3>
+            </a></button>
+    </div>
+    <section>
+        <!-- section for blog quesiton  -->
+        <section>
+            <div id="question" class="container mb-5">
+                <div class="accordion mb-5" id="accordionExample">
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                What is the difference between var, let & const ?
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>var:</strong>Var variable is the old way to declare a variable in javascript;
+                                var variable has the function scope, But global scope when it is declared outside the
+                                function.
+                                <br><strong>let:</strong>Let variable introduce a special feature that does not allow
+                                re-declaration of variables.The let variable have block scope, meaning let variable will
+                                be accessible only inside the block it's declared if we try of access outside of the
+                                scope it will show Reference Error.<br>
+                                <strong>const:</strong>Const variable also has the Block scope like let variable, const
+                                variable also can't be accessed outside of the scope.Const variable can't be updated or
+                                re-declared; this behavior of const variable helps us to write the error-free code.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                What is the diffrence between arrow & regular function ?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Arrow function:</strong>rrow function — also called fat arrow function— is a new
+                                feature introduced in ES6 that is a more concise syntax for writing function
+                                expressions.Curly brackets aren’t required here if only one expression is present.Arrow
+                                functions do not have an arguments binding. However, they have access to the arguments
+                                object of the closest non-arrow parent function. Named and rest parameters are heavily
+                                relied upon to capture the arguments passed to arrow functions.
+                                <br><strong>Regular function:</strong>The regular functions are the usual way to define
+                                methods on classes.Sometimes you'd need to supply the method as a callback, for example
+                                to setTimeout() or an event listener. In such cases, you might encounter difficulties
+                                accessing this value.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                What is the difference among map(),forEach(),filter(),find()?
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>forEach() & filter():</strong>The main difference between forEach and filter is
+                                that forEach just loop over the array and executes the callback but filter executes the
+                                callback and check its return. <br>
+                                <strong>map():</strong>like filter & foreach takes a callback and run it against every
+                                element on the array but whats makes it unique is it generate a new array based on your
+                                existing array. <br>
+                                <strong>find():</strong>The find() method returns the value of the first element that
+                                passes a test. The find() method executes a function for each array element. The find()
+                                method returns undefined if no elements are found. The find() method does not execute
+                                the function for empty elements.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Why are you using template string?
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong>Template string:</strong>Template literals are sometimes informally called
+                                template strings, because they are used most commonly for string interpolation (to
+                                create strings by doing substitution of placeholders). However, a tagged template
+                                literal may not result in a string; it can be used with a custom tag function to perform
+                                whatever operations you want on the different parts of the template literal.
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
