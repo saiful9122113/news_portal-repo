@@ -6,13 +6,14 @@ const loadCategories = async () => {
     displayCategories(data.news_category);
 }
 
-const loadNewsByCategoryId = async (categoryId) => {
+const loadNewsByCategoryId = async (categoryId, categoryName) => {
     toggleSpinner(true);
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`
         const res = await fetch(url);
         const { data: newsData } = await res.json();
-        displayNewses(newsData);
+        const sortedByViews = newsData.sort((a, b) => b.total_view - a.total_view)
+        displayNewses(sortedByViews, categoryName);
     } catch (error) {
         console.log(error)
     }
@@ -22,10 +23,9 @@ const displayCategories = categories => {
     const categoryContainer = document.getElementById('category-container');
     categories.reverse().forEach(category => {
         const categoryDiv = document.createElement('div');
-        categoryDiv.classList.add("row");
         categoryDiv.innerHTML = `
-                <div class="d-flex justify-content-between align-items-center">
-                <a href="#" onclick="loadNewsByCategoryId('${category.category_id}')" style="text-decoration: none">${category.category_name}</a>
+                <div>
+                <a href="#" onclick="loadNewsByCategoryId('${category.category_id}', '${category.category_name}')" style="text-decoration: none">${category.category_name}</a>
                 </div>           
         `;
         categoryContainer.appendChild(categoryDiv);
@@ -73,8 +73,8 @@ const generateSubString = (str = "") => {
 //     container.appendChild(newsDiv)
 // }
 
-const displayNewses = newses => {
-    document.getElementById('newsLength').innerText = newses.length > 0 ? newses.length : 0;
+const displayNewses = (newses, categoryName) => {
+    document.getElementById('newsLength').innerText = newses.length > 0 ? `${newses.length} from ${categoryName}` : `0 from ${categoryName}`;
     const newsContainer = document.getElementById('news-container');
     newsContainer.innerHTML = "";
     newses.forEach(news => {
@@ -121,17 +121,42 @@ const loadNewsDetails = async id => {
     // console.log(id);
     const url = `https://openapi.programming-hero.com/api/news/${id}`;
     const res = await fetch(url);
-    const data = await res.json();
-    displayNewsDetails(data);
+    const { data } = await res.json();
+    displayNewsDetails(data[0]);
     // console.log(data.data);
 }
 
-loadNewsByCategoryId("08")
-
 const displayNewsDetails = news => {
-    console.log(news.data);
     let modalTitle = document.getElementById('staticBackdropLabel');
-    // modalTitle.innerText = news.title;
+    modalTitle.innerText = news.title;
+
+    const thumbnail = document.getElementById('thumbnail');
+    thumbnail.src = news.thumbnail_url;
+    thumbnail.alt = "Image not found!"
+    thumbnail.style.width = "100%";
+    thumbnail.style.height = "250px";
+    thumbnail.style.objectFit = "cover";
+
+
+    const description = document.getElementById('description');
+    description.innerText = news.details ? news.details : "Details not found!";
+
+    const name = document.getElementById('name');
+    name.innerText = news.author.name ? news.author.name : "Name not found!";
+
+    const publishedDate = document.getElementById('publishedDate');
+    publishedDate.innerText = news.author.published_date ? news.author.published_date : "Name not found!";
+
+    const totalView = document.getElementById('totalView');
+    totalView.innerText = news.total_view ? news.total_view : "Total view not found!";
+
+    const authorImg = document.getElementById('authorImg');
+    authorImg.src = news.author.img;
+    authorImg.alt = "Image not found!"
+    authorImg.style.width = "2.5rem";
+    authorImg.style.height = "2.5rem";
+    authorImg.style.objectFit = "cover";
+    authorImg.style.borderRadius = "50%";
 };
 
 
@@ -144,6 +169,8 @@ const toggleSpinner = isLoading => {
         loaderSection.classList.add('d-none')
     }
 }
+
+loadNewsByCategoryId("08", "All News");
 
 
 
