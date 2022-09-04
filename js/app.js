@@ -1,13 +1,13 @@
 
 const loadCategories = async () => {
     const url = `https://openapi.programming-hero.com/api/news/categories`;
-    // const url = `https://openapi.programming-hero.com/api/phones?search=${searchText}`;
     const res = await fetch(url);
     const { data } = await res.json();
     displayCategories(data.news_category);
 }
 
 const loadNewsByCategoryId = async (categoryId) => {
+    toggleSpinner(true);
     try {
         const url = `https://openapi.programming-hero.com/api/news/category/${categoryId}`
         const res = await fetch(url);
@@ -32,8 +32,7 @@ const displayCategories = categories => {
     })
 
 }
-// const a = document.getElementById('category.category_id');
-// console.log(a);
+
 loadCategories();
 
 
@@ -42,37 +41,37 @@ const generateSubString = (str = "") => {
     return str.length > 200 ? `${str.substring(0, 200)}...` : str;
 }
 
-// modal
-const newsModal = async (id = "01") => {
-    // const { data: news } = await loadNewsDetails(id);
-    const news = {}
-    const container = document.getElementById('container');
-    const newsDiv = document.createElement('div');
+// // modal
+// const newsModal = async (id = "01") => {
+//     // const { data: news } = await loadNewsDetails(id);
+//     const news = {}
+//     const container = document.getElementById('container');
+//     const newsDiv = document.createElement('div');
 
-    newsDiv.innerHTML = `
-            <div class="modal" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-                </div>
-                <div class="modal-body">
-                <p>Modal body text goes here.</p>
-                </div>
-                <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Save changes</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-            </div>
-        </div>
-    `;
+//     newsDiv.innerHTML = `
+//             <div class="modal" tabindex="-1" role="dialog">
+//             <div class="modal-dialog" role="document">
+//             <div class="modal-content">
+//                 <div class="modal-header">
+//                 <h5 class="modal-title">Modal title</h5>
+//                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+//                     <span aria-hidden="true">&times;</span>
+//                 </button>
+//                 </div>
+//                 <div class="modal-body">
+//                 <p>Modal body text goes here.</p>
+//                 </div>
+//                 <div class="modal-footer">
+//                 <button type="button" class="btn btn-primary">Save changes</button>
+//                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+//                 </div>
+//             </div>
+//             </div>
+//         </div>
+//     `;
 
-    container.appendChild(newsDiv)
-}
+//     container.appendChild(newsDiv)
+// }
 
 const displayNewses = newses => {
     document.getElementById('newsLength').innerText = newses.length > 0 ? newses.length : 0;
@@ -103,21 +102,49 @@ const displayNewses = newses => {
                                     <p>${news?.author?.published_date}</p>
                                 </div>
                                 <div><i class="fa-solid fa-eye me-2"></i>${news?.total_view}</div>
-                                <button onclick="loadNewsDetails('grid', '${news?._id}')" class="px-5 btn btn-primary">Details</button>
+                                <button onclick="loadNewsDetails('${news?._id}')" class="px-5 btn btn-primary"  data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop">Details</button>
+                                
                             </div>
                         </div >
                     </div>
     `;
         newsContainer.appendChild(newsDiv);
+        toggleSpinner(false);
     })
 
 }
 
+{/* <button onclick="loadNewsDetails('grid', '${news?._id}')" class="px-5 btn btn-primary">Details</button> */ }
+// 'grid', 
 const loadNewsDetails = async id => {
+    // console.log(id);
     const url = `https://openapi.programming-hero.com/api/news/${id}`;
     const res = await fetch(url);
     const data = await res.json();
-    return data;
+    displayNewsDetails(data);
+    // console.log(data.data);
 }
 
 loadNewsByCategoryId("08")
+
+const displayNewsDetails = news => {
+    console.log(news.data);
+    let modalTitle = document.getElementById('staticBackdropLabel');
+    // modalTitle.innerText = news.title;
+};
+
+
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if (isLoading) {
+        loaderSection.classList.remove('d-none')
+    }
+    else {
+        loaderSection.classList.add('d-none')
+    }
+}
+
+
+
+
