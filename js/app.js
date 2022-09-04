@@ -26,7 +26,7 @@ const displayCategories = categories => {
         categoryDiv.innerHTML = `
                 <div class="d-flex justify-content-between align-items-center">
                 <a href="#" onclick="loadNewsByCategoryId('${category.category_id}')" style="text-decoration: none">${category.category_name}</a>
-                </div>
+                </div>           
         `;
         categoryContainer.appendChild(categoryDiv);
     })
