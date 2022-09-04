@@ -115,7 +115,7 @@ const displayNewses = newses => {
 
 }
 
-{/* <button onclick="loadNewsDetails('grid', '${news?._id}')" class="px-5 btn btn-primary">Details</button> */ }
+// { <button onclick="loadNewsDetails('grid', '${news?._id}')" class="px-5 btn btn-primary">Details</button> }
 // 'grid', 
 const loadNewsDetails = async id => {
     // console.log(id);
